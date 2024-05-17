@@ -22,7 +22,7 @@ db.connect(error => {
   });
 });
 
-const activityInformations = require('./routes/activityInformations')(db);
-const allActivities = require('./routes/allActivities')(db);
+const activityInformations = require('./routes/get/activityInformations')(db);
+const allActivities = require('./routes/get/allActivities')(db);
 app.use('/activityInformations', activityInformations);
 app.use('/allActivities', allActivities);
