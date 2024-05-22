@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const app = express();
 const port = 3000;
 
-const db = mysql.createConnection({
+/*const db = mysql.createConnection({
   host: '<YOUR HOST IP>',
   user: '<YOUR USERNAME>',
   password: '<YOUR PASSWORD>',
@@ -20,11 +20,17 @@ db.connect(error => {
   app.listen(port, () => {
     console.log(`Server läuft unter http://localhost:${port}`);
   });
+});*/
+
+app.listen(port, () => {
+  console.log(`Server läuft unter http://localhost:${port}`);
 });
 
-const activityInformations = require('./routes/get/activityInformations')(db);
+/*const activityInformations = require('./routes/get/activityInformations')(db);
 const allActivities = require('./routes/get/allActivities')(db);
-const getMessages = require('./routes/post/getMessages')(db);
+const getMessages = require('./routes/post/getMessages')(db);*/
+const hashPassword = require('./routes/get/hashPassword');/*
 app.use('/activityInformations', activityInformations);
 app.use('/allActivities', allActivities);
-app.use('/getMessages', getMessages);
+app.use('/getMessages', getMessages);*/
+app.use('/hashPassword', hashPassword);

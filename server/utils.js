@@ -21,5 +21,18 @@ function verifySchuelerLogin(id, key, db) {
   });
 }
 
+async function passwordHash(password) {
+  try {
+    const saltRounds = 16;
+    const salt = await bcrypt.genSalt(saltRounds);
+
+    const hashedPassword = await bcrypt.hash(password, salt);
+    return hashedPassword;
+  } catch (error) {
+    console.error('Fehler beim Hashen des Passworts:', error);
+    throw error;
+  }
+}
+
 module.exports = { protect, verifySchuelerLogin };
   

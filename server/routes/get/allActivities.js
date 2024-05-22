@@ -1,5 +1,5 @@
 module.exports = function(db) {
-    const { protect } = require('../utils');
+    const { protect } = require('../../utils');
 
     const express = require('express');
     const router = express.Router();

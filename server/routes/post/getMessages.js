@@ -1,5 +1,5 @@
 module.exports = function(db) {
-    const { protect, verifySchuelerLogin } = require('../utils');
+    const { protect, verifySchuelerLogin } = require('../../utils');
 
     const express = require('express');
     const router = express.Router();
