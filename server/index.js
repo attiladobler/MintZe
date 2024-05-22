@@ -4,10 +4,10 @@ const app = express();
 const port = 3000;
 
 const db = mysql.createConnection({
-  host: '10.16.2.100',
-  user: 'root',
-  password: 'dein_passwort',
-  database: 'mintze'
+  host: '<YOUR HOST IP>',
+  user: '<YOUR USERNAME>',
+  password: '<YOUR PASSWORD>',
+  database: '<DATABASE NAME>'
 });
 
 db.connect(error => {
