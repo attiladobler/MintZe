@@ -24,5 +24,7 @@ db.connect(error => {
 
 const activityInformations = require('./routes/get/activityInformations')(db);
 const allActivities = require('./routes/get/allActivities')(db);
+const getMessages = require('./routes/post/getMessages')(db);
 app.use('/activityInformations', activityInformations);
 app.use('/allActivities', allActivities);
+app.use('/getMessages', getMessages);

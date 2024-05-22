@@ -9,5 +9,17 @@ function protect(string) {
     return protectedString;
 }
 
-module.exports = { protect };
+function verifySchuelerLogin(id, key, db) {
+  db.query("SELECT * FROM Schueler WHERE SchuelerID = ? AND AuthKey = ?", [id, key], (err, results) => {
+    if(err) {
+      return false;
+    } else if(results.length() > 0) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+}
+
+module.exports = { protect, verifySchuelerLogin };
   
