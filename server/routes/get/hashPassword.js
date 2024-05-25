@@ -4,10 +4,14 @@ module.exports = function() {
     const express = require('express');
     const router = express.Router();
 
-    router.get('/:password', (req, res) => {
-        const password = protect(req.params.password);
+    router.post('/', (req, res) => {
+        console.log("POST")
+        const password = req.body.password;
+        console.log(password)
 
-        res.send(passwordHash(password));
+        const hashedPassword = passwordHash(password);
+
+        res.send(hashedPassword);
     });
 
     return router;

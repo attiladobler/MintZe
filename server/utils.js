@@ -1,3 +1,7 @@
+
+const bcrypt = require('bcrypt')
+
+
 function protect(string) {
     const notAllowed = ['"', '<', '>', "'", '\\'];
     let protectedString = string;
@@ -23,7 +27,7 @@ function verifySchuelerLogin(id, key, db) {
 
 async function passwordHash(password) {
   try {
-    const saltRounds = 16;
+    const saltRounds = 5;
     const salt = await bcrypt.genSalt(saltRounds);
 
     const hashedPassword = await bcrypt.hash(password, salt);
@@ -34,5 +38,5 @@ async function passwordHash(password) {
   }
 }
 
-module.exports = { protect, verifySchuelerLogin };
+module.exports = { protect, verifySchuelerLogin, passwordHash };
   
